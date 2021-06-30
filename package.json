@@ -1,0 +1,27 @@
+{
+  "name": "phonebook-api",
+  "version": "1.0.0",
+  "description": "$test",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnknownVII/absalon-task003.git"
+  },
+  "author": "JW-Absalon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UnknownVII/absalon-task003/issues"
+  },
+  "homepage": "https://github.com/UnknownVII/absalon-task003#readme",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.8"
+  }
+}
