@@ -25,12 +25,7 @@ app.use(bodyParser.json());
 
 //Root
 app.get('/',(req, res) => {
-    try {
-        res.send("Welcome to my Phonebook app ");
-    }
-    catch(e) {
-        console.log('Error: ', e)
-    }
+    res.send("Welcome to my Phonebook app ");
 });
 
 //Go to Routes
