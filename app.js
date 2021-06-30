@@ -1,34 +1,33 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 //Create express app
 const app = express();
 
-//Database
-mongoose.connect('mongodb+srv://m001-student:m001-mongodb-basics@cluster0.ryoyw.mongodb.net/Phonebook', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+//Starting server
+const morgan = require('morgan'); 
+app.use(morgan('tiny'));
 
-const db = mongoose.connection;
+app.listen(port = 3000, () => {
+    console.log("Server started on PORT : ", port);
+})
 
-db.once('open', () => {
-    console.log("Connected to MongoDB phonebook ...");
-});
+//Starting Mongo Database
+require('./initDB')();
 
 //Middleware
 app.use(bodyParser.json());
 
-//Routes
+//Root
 app.get('/',(req, res) => {
     res.send("Welcome to my Phonebook app ");
 });
 
+//Go to Routes
 const ContactsRoute = require('./routes/Contacts');
-
 app.use('/contacts', ContactsRoute);
 
 
-//Starting server
-app.listen(3000, console.log("Listening to port 3000"));
+

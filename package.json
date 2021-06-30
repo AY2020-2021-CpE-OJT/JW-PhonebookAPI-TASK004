@@ -18,10 +18,12 @@
   "homepage": "https://github.com/UnknownVII/absalon-task003#readme",
   "dependencies": {
     "body-parse": "^0.1.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.13.0"
   },
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.8"
   }
 }
