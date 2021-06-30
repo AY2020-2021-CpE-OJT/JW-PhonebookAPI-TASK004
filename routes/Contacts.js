@@ -6,8 +6,13 @@ const Contacts = require('../models/Contacts');
 
 //Get all routes
 router.get('/', async (req,res) => {
-    const contacts = await Contacts.find();
-    res.json(contacts);
+    try{
+        const contacts = await Contacts.find();
+        res.json(contacts);
+    } catch  (e) {
+        console.log('Error: ', e)
+    }
+    
     //console.log("Get all routes...");
     //res.send("Get all routes");
 });
