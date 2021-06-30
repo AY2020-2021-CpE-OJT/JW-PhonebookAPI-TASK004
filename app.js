@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
+//PORT
+const port = process.env.PORT || 8080;
+
 //Create express app
 const app = express();
 
@@ -10,7 +13,7 @@ const app = express();
 const morgan = require('morgan'); 
 app.use(morgan('tiny'));
 
-app.listen(port = 3000, () => {
+app.listen(port, () => {
     console.log("Server started on PORT : ", port);
 })
 
