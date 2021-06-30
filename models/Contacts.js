@@ -11,10 +11,10 @@ const ContactsSchema = new mongoose.Schema({
             required:true
         },
     },
-    date: {
-        type: Date,
-        default: Date.now
-    },
+    //date: {
+    //    type: Date,
+    //    default: Date.now
+    //},
     phone_numbers: {
         type: [String]
     }
