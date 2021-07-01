@@ -1,25 +1,28 @@
 const express = require('express');
 const router = express.Router();
-
+const { config } = require('dotenv'); 
 const Contacts = require('../models/Contacts');
 
+const dbName = process.env.DB_NAME || '';
+
+config();
 
 //Get all routes
 router.get('/', async (req,res) => {
-    const contacts = await Contacts.find();
-    res.json(contacts);
-    //console.log("Get all routes...");
-    //res.send("Get all routes");
+    const contacts = await Contacts.find().countDocuments(
+        function(err, count) {
+            console.log("Number of docs [", dbName ,"]:", count); 
+            res.send('Check log for all Contacts');
+        });    
 });
 
 //Create a new Contacts
 router.post('/new', async (req, res) => {
-    const newContacts = new Contacts(req.body);
-   
-    const savedContacts = await newContacts.save();
 
-    res.json(savedContacts);
-   // res.send("Create New Contacts");
+    const newContacts = new Contacts(req.body);
+    const savedContacts = await newContacts.save();
+    res.send('a Contact has been Added');
+
 });
 
 //Get  specific Contacts
