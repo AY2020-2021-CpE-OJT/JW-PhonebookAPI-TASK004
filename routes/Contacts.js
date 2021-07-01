@@ -21,7 +21,7 @@ router.post('/new', async (req, res) => {
 
     const newContacts = new Contacts(req.body);
     const savedContacts = await newContacts.save();
-    res.send('a Contact has been Added');
+    res.json(savedContacts);
 
 });
 
