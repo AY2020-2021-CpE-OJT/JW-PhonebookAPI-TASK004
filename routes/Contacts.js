@@ -8,12 +8,9 @@ const dbName = process.env.DB_NAME || '';
 config();
 
 //Get all routes
-router.get('/', async (req,res) => {
-    const contacts = await Contacts.find().countDocuments(
-        function(err, count) {
-            console.log("Number of docs [", dbName ,"]:", count); 
-            res.send('Check log for all Contacts');
-        });    
+router.get('/', async (req,res) => { 
+    const findContacts = await Contacts.find()
+    res.json(findContacts);  
 });
 
 //Create a new Contacts
